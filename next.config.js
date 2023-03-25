@@ -4,12 +4,16 @@ const withPlugins = require('next-compose-plugins');
 const nextConfiguration = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
   // images: {
   //   domains: ['localhost'], // Сюда добавить домен, с которого нужно получать картинки на продакшене
   // },
   sassOptions: {
     includePaths: [path.join(__dirname, './src/shared/assets/styles')],
-    prependData: `@import "_global-import.scss";`
+    prependData: `@import "_global-import.scss";`,
   },
   typescript: {
     // !! WARN !!
