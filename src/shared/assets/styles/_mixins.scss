@@ -1,0 +1,78 @@
+@mixin font-face($name, $path, $fw) {
+  $format: "woff", "woff2";
+  $qq: "1" + 2;
+
+  @for $var from 1 to 3 {
+    @font-face {
+      font-family: $name;
+      font-weight: $fw;
+      src: url($path + "." + nth($format, $var)) format(nth($format, $var));
+    }
+  }
+}
+
+@mixin import-tarif-mixin {
+  .basic {
+    background-color: $bcgrd_tariff_basic;
+  }
+  .standart {
+    background-color: $bcgrd_tariff_standart;
+  }
+  .premium {
+    background-color: $bcgrd_tariff_premium;
+  }
+}
+
+@mixin fonts-headings($fz: 39px, $clr: #fff, $lnh: $fz) {
+  font-family: var(--aireExterior-font);
+  font-weight: 400;
+  font-size: $fz;
+  line-height: $lnh;
+  color: $clr;
+}
+
+@mixin fonts-main($fz: 16px, $clr: #fff, $fw: 300, $lnh: inherit) {
+  font-family: var(--roboto-font);
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lnh;
+  color: $clr;
+}
+
+@mixin ani-smooth-mixin($delay: 2s) {
+  animation: ani-smooth $delay forwards;
+}
+
+@keyframes ani-smooth {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin main-block-styles {
+  width: 100%;
+  max-height: max-content;
+  position: relative;
+}
+
+@mixin content-block-styles {
+  @include main-block-styles;
+  padding: 42px;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 45px;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@mixin text-gray-styles {
+  @include fonts-main($fz: 21px, $clr: $gray_text_color);
+  line-height: 150%;
+}
