@@ -8,6 +8,7 @@ const nextConfiguration = {
     loader: 'akamai',
     path: '',
   },
+  basePath: '/github-pages',
   // images: {
   //   domains: ['localhost'], // Сюда добавить домен, с которого нужно получать картинки на продакшене
   // },
